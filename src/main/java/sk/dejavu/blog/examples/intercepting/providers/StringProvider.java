@@ -27,7 +27,8 @@ import sk.dejavu.blog.examples.intercepting.intercept.Intercept;
  *
  * @author Michal Gajdos
  */
-@Provider
+// Disable package scanning.
+// @Provider
 public class StringProvider extends AbstractMessageReaderWriterProvider<String> {
 
     @Context

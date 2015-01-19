@@ -16,9 +16,6 @@ public class ServerResource {
 
     /**
      * Resource method is not intercepted itself.
-     *
-     * Return value (String) is processed by {@code StringProvider}
-     * whose constructor and methods intercepted are.
      */
     @GET
     public String get() {
@@ -27,9 +24,6 @@ public class ServerResource {
 
     /**
      * Resource method is intercepted by {@code ResourceInterceptor}.
-     *
-     * Return value (String) is processed by {@code StringProvider}
-     * whose constructor and methods intercepted are.
      */
     @GET
     @Path("intercepted")

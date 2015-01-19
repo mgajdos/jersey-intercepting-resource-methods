@@ -30,8 +30,7 @@ public class InterceptingTest extends JerseyTest {
         final Response response = target().path("server").request().get();
 
         assertThat(response.readEntity(String.class),
-                is("ServerResource: Non-intercepted method invoked\n" +
-                "   StringProvider(Server): Entity writing intercepted\n"));
+                is("ServerResource: Non-intercepted method invoked\n"));
     }
 
     @Test
@@ -39,9 +38,8 @@ public class InterceptingTest extends JerseyTest {
         final Response response = target("server").path("intercepted").request().get();
 
         assertThat(response.readEntity(String.class),
-                is("ServerResource: Intercepted method invoked\n" +
-                "   ResourceInterceptor: Method \"getIntercepted\" intercepted\n" +
-                "   StringProvider(Server): Entity writing intercepted\n"));
+                is("ServerResource: Intercepted method invoked\n"
+                        + "   ResourceInterceptor: Method \"getIntercepted\" intercepted\n"));
     }
 
     @Test
@@ -49,11 +47,9 @@ public class InterceptingTest extends JerseyTest {
         final Response response = target().path("client").request().get();
 
         assertThat(response.readEntity(String.class),
-                is("ClientResource: Invoke request to non-intercepted server resource method\n" +
-                "   ServerResource: Non-intercepted method invoked\n" +
-                "   StringProvider(Server): Entity writing intercepted\n" +
-                "   StringProvider(Client): Entity reading intercepted\n" +
-                "   StringProvider(Server): Entity writing intercepted\n"));
+                is("ClientResource: Invoke request to non-intercepted server resource method\n"
+                        + "   ServerResource: Non-intercepted method invoked\n"
+                        + "   StringProvider(Client): Entity reading intercepted\n"));
     }
 
     @Test
@@ -65,8 +61,7 @@ public class InterceptingTest extends JerseyTest {
                 .request().get();
 
         assertThat(response.readEntity(String.class),
-                is("ServerResource: Non-intercepted method invoked\n" +
-                        "   StringProvider(Server): Entity writing intercepted\n" +
-                        "   StringProvider(Client): Entity reading intercepted\n"));
+                is("ServerResource: Non-intercepted method invoked\n"
+                        + "   StringProvider(Client): Entity reading intercepted\n"));
     }
 }
