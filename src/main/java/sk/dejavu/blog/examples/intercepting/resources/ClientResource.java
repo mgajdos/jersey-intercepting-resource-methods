@@ -23,13 +23,11 @@ public class ClientResource {
      *
      * In the injected client the {@code StringProvider} is registered
      * and the provider is intercepted (constructor, isReadable).
-     *
-     * Invoked server resource method is not intercepted but writing
-     * the entity in {@code StringProvider} intercepted is.
      */
     @GET
     public String get() {
-        return "ClientResource: Invoke request to non-intercepted server resource method\n"
+        return "ClientResource: Invoke request to non-intercepted"
+                + " server resource method\n"
                 + "   " + server.request().get(String.class);
     }
 }
